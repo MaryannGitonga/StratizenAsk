@@ -5,7 +5,7 @@
         <div class="col-lg-12 margin-tb">
             <div class="pull-right">
                 <a class="btn btn-success" href="{{ route('posts.create') }}" style="background-color:#4B94FD; border: 0;"> Create New Post</a>
-            </div><br>
+            </div><br><br>
         </div>
     </div>
     @if ($message = Session::get('success'))

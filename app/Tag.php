@@ -18,6 +18,6 @@ class Tag extends Model
     }
     public function searchableAs()
     {
-        return 'name';
+        return 'tags';
     }
 }

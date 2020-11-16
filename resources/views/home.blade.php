@@ -1,9 +1,6 @@
 @extends('layouts.app')
 @section('content')
     <div class="container">
-    <div class="row">
-       
-    </div>
     @if ($message = Session::get('success'))
         <div class="alert alert-success">
             <p>{{ $message }}</p>
@@ -24,17 +21,13 @@
                         </ul>
                     @endif
                     <p class="mb-0">Published on: {{ $post->published_on }}</p>
-                    <p>Tags:</p>
-                    <ul>
-                        <li></li>
-                    </ul>
                 </div>
                 <div class="card-body">
                     <a href="{{ route('posts.show',$post->id) }}" class="card-link">View</a>
                 </div>
-        </div><br>
+    </div><br>
 
     @endforeach
     {!! $posts->links() !!}
-    </div>
+</div>
 @endsection

@@ -1,19 +1,3 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-    <style>
-        #btn 
-        {
-            color:red; 
-            background-color:#f3f3f3;
-        }
-    </style>
-    <script src="https://kit.fontawesome.com/a81368914c.js"></script>
-</head>
-<body>
 @extends('layouts.app')
 
 @section('content')
@@ -30,14 +14,14 @@
                     <p class="mb-0">Faculty: {{ $post->category }}</p>
                     <p class="mb-0">Author: {{  $author->name  }} </p>
 
-                    @if (count($post->tags)>0)
-                        <p class="mb-0">Tags:</p>
-                        <ul>
-                            @foreach ($post->tags as $tag)
-                                <li><a href="{{ route ('show',['tag' => $tag] ) }}">{{$tag->name}}</a></li>
-                            @endforeach
-                        </ul>
-                    @endif
+                @if (count($post->tags)>0) 
+                    <p class="mb-0">Tags:</p>
+                    <ul class="list-group list-group-horizontal">
+                        @foreach ($post->tags as $tag)
+                            <li class="list-group-item p-2 border-0"><a href="{{ route ('show',['tag' => $tag] ) }}">{{$tag->name}}</a></li>
+                        @endforeach
+                    </ul>
+                @endif
 
                     @role('administrator')
                     <p class="mb-0">Status: {{ $post->status }}</p>
@@ -121,5 +105,3 @@
         {!! $comments->links() !!}
         </div>
 @endsection
-</body>
-</html>

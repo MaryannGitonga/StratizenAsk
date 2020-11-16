@@ -72,22 +72,9 @@ class PostController extends Controller
         $post->save();
 
         //for the pivot table
-/*         $seltag=$request->input('tags');
-        $tags=Tag::where('name','like',"$seltag")->get();
-        $tagscount=$tags->count();
-        $tagsarray=array(); 
-
-        
-        foreach($tags as $tag){
-
-            $tag_id=$tag->id;
-            $post->tags()->attach(1,array('tag_id'=>$tag_id));
-        }
-*/      $tags=array();
+        $tags=array();
         $tags= $request->input('tags');// arrays of role ids
         $post->tags()->attach($tags);
-
-        //return $tags;
 
         return redirect()->route('posts.index')->with('success', 'Post created successfully.It will be reviewed in no time');
     }
